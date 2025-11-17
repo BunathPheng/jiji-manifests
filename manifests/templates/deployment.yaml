@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jiji
+  labels:
+    app: jiji
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jiji
+  template:
+    metadata:
+      labels:
+        app: jiji
+    spec:
+      containers:
+        - name: jiji
+          image: docker.io/phengbunath/jiji:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
